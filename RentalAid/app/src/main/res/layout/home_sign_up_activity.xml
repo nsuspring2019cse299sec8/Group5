@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <Button
-        True
+        
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centralInParent=
+        android:layout_centralInParent="True"
         android:text="LOGIN AS HOUSE OWNER";
         android:id="@+id/login_as_owner_btn"/>
 
@@ -16,12 +16,17 @@
         android:layout_height="wrap_content"
         android:text="LOGIN AS TENANT"
         android:id="@+id/login_as_tenant"
-        
+        android:layout_marginTop="20dp"
+        android:layout_centralHorizontal="True"
+        android:layout_below="@+id/login_as_owner_btn"/>
+
+
+
 
 
         />
 
 
 
-</LinearLayout>
+</RelativeLayout>
 
