@@ -1,0 +1,44 @@
+{
+  "project_info": {
+    "project_number": "972785269379",
+    "firebase_url": "https://rentalaid-f0da9.firebaseio.com",
+    "project_id": "rentalaid-f0da9",
+    "storage_bucket": "rentalaid-f0da9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:972785269379:android:dd6b2fd4dcdd2bd5",
+        "android_client_info": {
+          "package_name": "com.example.asus.rentalaid"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "972785269379-no9iu8soeut9972lkdlfp68e6t6tvdls.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.asus.rentalaid",
+            "certificate_hash": "2848c2e42dc54f493122b03badec304a841759ab"
+          }
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAIPvBEw5BpN52lvvqhZrXK8U6Ikvl1TF0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "972785269379-2k9b52rbc87cg8kui8kbg31k2kd3f5pe.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

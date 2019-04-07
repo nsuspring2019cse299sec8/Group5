@@ -1,0 +1,44 @@
+{
+  "project_info": {
+    "project_number": "778115648190",
+    "firebase_url": "https://socialnetworkrentalaid.firebaseio.com",
+    "project_id": "socialnetworkrentalaid",
+    "storage_bucket": "socialnetworkrentalaid.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:778115648190:android:8da24f1c79209dd0",
+        "android_client_info": {
+          "package_name": "com.example.asus.socialnetworkrentalaid"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "778115648190-et3njrned33les3njt1e4tff3f8bgnlm.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.asus.socialnetworkrentalaid",
+            "certificate_hash": "2848c2e42dc54f493122b03badec304a841759ab"
+          }
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDnv7I4JWNewVgq0JoV3oL3GwKsxbgTW9U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "778115648190-25ugma58lc7q7tlr55dn5b2a9ukihdvd.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
