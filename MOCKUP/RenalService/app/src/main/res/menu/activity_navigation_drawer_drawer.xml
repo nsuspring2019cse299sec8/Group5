@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/nav_dashboard"
+        android:icon="@drawable/ic_dashboard"
+        android:title="Dashboard" />
+
+    <item
+        android:id="@+id/nav_rent"
+        android:icon="@drawable/ic_rent"
+        android:title="Rent" />
+
+    <item
+        android:id="@+id/nav_myrental"
+        android:icon="@drawable/ic_my_rental"
+        android:title="My Rental" />
+
+</menu>
