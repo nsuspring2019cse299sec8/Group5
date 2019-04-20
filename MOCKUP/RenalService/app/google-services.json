@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "829157856172",
+    "firebase_url": "https://renalservice-f92ca.firebaseio.com",
+    "project_id": "renalservice-f92ca",
+    "storage_bucket": "renalservice-f92ca.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:829157856172:android:dd0b8c5bf1399cd9",
+        "android_client_info": {
+          "package_name": "com.rentalservice.renalservice"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "829157856172-aipqrqdjkqrrq133qnht9df5qsjqipa3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.rentalservice.renalservice",
+            "certificate_hash": "2848c2e42dc54f493122b03badec304a841759ab"
+          }
+        },
+        {
+          "client_id": "829157856172-9bml9tpptsltrqho0gql2thtmdlhtbhg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBjmi9aZYVeAR3PgMlAn_nhHKdob5ibEXY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "829157856172-9bml9tpptsltrqho0gql2thtmdlhtbhg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
