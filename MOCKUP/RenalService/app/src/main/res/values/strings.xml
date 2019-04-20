@@ -24,4 +24,6 @@
     <string name="sign_in">Sign in</string>
     <string name="email_hints">Enter your email</string>
     <string name="pass_hint">Enter your password</string>
+    <string name="sign_as_owner">Sign In As Owner</string>
+    <string name="sign_in_as_tenent">Sign In As Tenent</string>
 </resources>
