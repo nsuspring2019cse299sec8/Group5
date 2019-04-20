@@ -21,4 +21,7 @@
     <string name="custom_layout_idp_header">Choose a provider</string>
     <string name="custom_layout_email_header">Use your email</string>
     <string name="custom_layout_email_click_text">Continue with Email</string>
+    <string name="sign_in">Sign in</string>
+    <string name="email_hints">Enter your email</string>
+    <string name="pass_hint">Enter your password</string>
 </resources>

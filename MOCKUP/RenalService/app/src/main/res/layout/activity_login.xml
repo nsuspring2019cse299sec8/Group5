@@ -1,158 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingTop="16dp"
-    android:paddingBottom="16dp"
-    android:clipToPadding="false"
+    xmlns:tools="http://schemas.android.com/tools"
     tools:context=".LoginActivity">
 
-    <LinearLayout
-        android:layout_width="match_parent"
+    <ImageView
+        android:id="@+id/image_view_id"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="24dp"
-        android:layout_marginRight="24dp"
-        android:layout_marginBottom="16dp"
-        android:orientation="vertical">
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/firebase_auth_120dp" />
 
-        <TextView
-            style="@style/Base.TextAppearance.AppCompat.Headline"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:drawableTop="@drawable/firebase_auth_120dp"
-            android:text="@string/signed_in_header" />
+    <Button
+        android:id="@+id/sign_in_btn_id"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="88dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="16dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="@string/sign_in"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pass_et_id" />
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:orientation="horizontal">
+    <EditText
+        android:id="@+id/email_et_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="48dp"
+        android:layout_marginEnd="8dp"
+        android:drawableStart="@drawable/ic_email_black_24dp"
+        android:drawablePadding="8dp"
+        android:ems="10"
+        android:hint="@string/email_hints"
+        android:inputType="textEmailAddress"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/image_view_id" />
 
-            <Button
-                android:id="@+id/sign_out"
-                style="@style/Widget.AppCompat.Button.Colored"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_margin="16dp"
-                android:text="@string/sign_out" />
+    <EditText
+        android:id="@+id/pass_et_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="8dp"
+        android:drawableStart="@drawable/ic_security_black_24dp"
+        android:drawablePadding="8dp"
+        android:ems="10"
+        android:hint="@string/pass_hint"
+        android:inputType="textPassword"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/email_et_id" />
 
-            <Button
-                android:id="@+id/delete_account"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_margin="16dp"
-                android:text="@string/delete_account_label"
-                android:theme="@style/WarnButton"
-                tools:ignore="ButtonStyle" />
 
-        </LinearLayout>
-
-        <TextView
-            style="@style/Base.TextAppearance.AppCompat.Subhead"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/user_profile_header" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:orientation="horizontal">
-
-            <ImageView
-                android:id="@+id/user_profile_picture"
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                android:layout_gravity="center_horizontal"
-                android:layout_margin="16dp"
-                android:contentDescription="@string/profile_picture_content_desc"
-                app:srcCompat="@drawable/ic_anon_user_48dp" />
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/user_email"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textIsSelectable="true" />
-
-                <TextView
-                    android:id="@+id/user_phone_number"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textIsSelectable="true" />
-
-                <TextView
-                    android:id="@+id/user_display_name"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textIsSelectable="true" />
-
-                <TextView
-                    android:id="@+id/user_enabled_providers"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textIsSelectable="true" />
-
-                <TextView
-                    android:id="@+id/user_is_new"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textIsSelectable="false" />
-
-            </LinearLayout>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/idp_token_layout"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <TextView
-                style="@style/Base.TextAppearance.AppCompat.Subhead"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/idp_token" />
-
-            <TextView
-                android:id="@+id/idp_token"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textIsSelectable="true" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/idp_secret_layout"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <TextView
-                style="@style/Base.TextAppearance.AppCompat.Subhead"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/idp_secret" />
-
-            <TextView
-                android:id="@+id/idp_secret"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textIsSelectable="true" />
-
-        </LinearLayout>
-
-    </LinearLayout>
-
-</ScrollView>
+</android.support.constraint.ConstraintLayout>
