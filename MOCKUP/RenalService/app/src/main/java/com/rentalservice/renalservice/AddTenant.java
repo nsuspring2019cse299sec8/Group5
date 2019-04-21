@@ -2,12 +2,17 @@ package com.rentalservice.renalservice;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 
 public class AddTenant extends AppCompatActivity {
-   EditText tenantName, tenantPhone, tenantNid,tenantPrevAdd;
-   Button addTenant;
+   EditText name_et, phone_et, nid_et,prev_add_et;
+   Button updatebtn;
+   Owner owner;
+   Tenant tenant;
+   String chectStr;
+   boolean check;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -19,8 +24,21 @@ public class AddTenant extends AppCompatActivity {
 
     private void init() {
 
-        tenantName = findViewById(R.id.t_name_et);
-        tenantNid = findViewById(R.id.t_nid_et);
-        tenantPhone = findViewById(R.id.t_phone_et);
+        name_et = findViewById(R.id.name_et);
+        nid_et = findViewById(R.id.nid_et);
+        prev_add_et= findViewById(R.id.prev_et);
+        phone_et= findViewById(R.id.phone_et);
+        updatebtn =findViewById(R.id.update_btn);
+        try{
+            chectStr = getIntent().getStringExtra('key');
+            if (chectStr.equals("owner")){
+                //update owners
+            }elseif(chectStr.equals("tenant")){
+               //update tenant profile
+            }
+
+        }catch (NullPointerException e){
+            Log.d(TAG, "init: "e.getMessage());
+        }
     }
 }

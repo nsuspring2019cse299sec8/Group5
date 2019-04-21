@@ -20,7 +20,7 @@
           android:layout_height="match_parent">
 
           <EditText
-              android:id="@+id/t_name_et"
+              android:id="@+id/name_et"
               android:layout_width="wrap_content"
               android:layout_height="wrap_content"
               android:layout_marginStart="8dp"
@@ -35,7 +35,7 @@
               tools:text=" Name" />
 
           <EditText
-              android:id="@+id/t_phone_et"
+              android:id="@+id/phone_et"
               android:layout_width="wrap_content"
               android:layout_height="wrap_content"
               android:layout_marginStart="8dp"
@@ -46,10 +46,10 @@
               android:text="Phone Numberh"
               app:layout_constraintEnd_toEndOf="parent"
               app:layout_constraintStart_toStartOf="parent"
-              app:layout_constraintTop_toBottomOf="@+id/t_name_et" />
+              app:layout_constraintTop_toBottomOf="@+id/name_et" />
 
           <EditText
-              android:id="@+id/t_nid_et"
+              android:id="@+id/nid_et"
               android:layout_width="wrap_content"
               android:layout_height="wrap_content"
               android:layout_marginStart="8dp"
@@ -60,10 +60,10 @@
               android:text=" NID"
               app:layout_constraintEnd_toEndOf="parent"
               app:layout_constraintStart_toStartOf="parent"
-              app:layout_constraintTop_toBottomOf="@+id/t_phone_et" />
+              app:layout_constraintTop_toBottomOf="@+id/phone_et" />
 
           <EditText
-              android:id="@+id/t_prev_et"
+              android:id="@+id/prev_et"
               android:layout_width="wrap_content"
               android:layout_height="wrap_content"
               android:layout_marginStart="8dp"
@@ -74,10 +74,10 @@
               android:text="pevious house address"
               app:layout_constraintEnd_toEndOf="parent"
               app:layout_constraintStart_toStartOf="parent"
-              app:layout_constraintTop_toBottomOf="@+id/t_nid_et" />
+              app:layout_constraintTop_toBottomOf="@+id/nid_et" />
 
           <Button
-              android:id="@+id/t_update_btn"
+              android:id="@+id/update_btn"
               android:layout_width="wrap_content"
               android:layout_height="wrap_content"
               android:layout_marginStart="8dp"

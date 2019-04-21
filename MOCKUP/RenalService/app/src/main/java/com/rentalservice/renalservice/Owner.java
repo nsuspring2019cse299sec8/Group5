@@ -7,13 +7,14 @@ public class Owner {
     private String phone;
     private String tenant_id;
 
+    public Owner() {
+    }
 
-
-
-    public Owner(String name, String house_address, String phone) {
+    public Owner(String name, String house_address, String phone, String tenant_id) {
         this.name = name;
         this.house_address = house_address;
         this.phone = phone;
+        this.tenant_id = tenant_id;
     }
 
     public String getTenant_id() {

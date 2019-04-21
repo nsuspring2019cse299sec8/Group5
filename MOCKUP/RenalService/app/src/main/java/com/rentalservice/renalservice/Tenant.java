@@ -8,10 +8,16 @@ public class Tenant {
     private String owner_id;
 
 
-    public Tenant(String name, String phone, String prev_address) {
+
+    public Tenant() {
+
+    }
+
+    public Tenant(String name, String phone, String prev_address,String nid) {
         this.name = name;
         this.phone = phone;
         this.prev_address = prev_address;
+        this.nid =nid;
     }
 
     public String getNid() {
