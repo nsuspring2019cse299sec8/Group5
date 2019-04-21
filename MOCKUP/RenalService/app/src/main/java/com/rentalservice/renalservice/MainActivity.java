@@ -36,9 +36,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         mNaviagtion = findViewById(R.id.nav_view);
         mNaviagtion.setNavigationItemSelectedListener(MainActivity.this);
         addTenant = findViewById(R.id.add_tenant_btn);
+        String ch =getIntent().getStringExtra("owner_key");
 
-        if(getIntent().getStringArrayExtra("owner_key") !=null){
-            if(getIntent().getStringArrayExtra("owner_key").equals("owner")){
+        if(ch!=null){
+            if(ch.equals("owner")){
                 bool = true;
                 Log.d(TAG, "init: owner found ");
                 addTenant.show();

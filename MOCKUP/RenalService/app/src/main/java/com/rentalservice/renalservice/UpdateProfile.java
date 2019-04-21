@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -50,13 +51,14 @@ public class UpdateProfile extends AppCompatActivity {
         String nid = nid_et.getText().toString();
         String prev_add = prev_add_et.getText().toString();
 
-        if (check==true){
+        if (check){
             owner =new Owner();
             owner.setName(name);
             owner.setPhone(phone);
             owner.setHouse_address(prev_add);
             owner.setNid(nid);
             myRef.child("owners").child(user_id).setValue(owner);
+            Toast.makeText(this, "Updating Profile", Toast.LENGTH_SHORT).show();
 
         }else{
 
@@ -66,6 +68,7 @@ public class UpdateProfile extends AppCompatActivity {
             tenant.setPrev_address(prev_add);
             tenant.setNid(nid);
             myRef.child("tenant").child(user_id).setValue(tenant);
+
 
 
         }
@@ -86,7 +89,8 @@ public class UpdateProfile extends AppCompatActivity {
             user_id =mUser.getUid();
 
             chectStr = getIntent().getStringExtra("key");
-            if (chectStr.equals("owner")){
+            Log.d(TAG, "init: check str: ");
+            if ("owner".equals(chectStr)){
                 //update owners
                 check = true;
             }else if(chectStr.equals("tenant")){
@@ -97,8 +101,8 @@ public class UpdateProfile extends AppCompatActivity {
         }catch (NullPointerException e){
             Log.d(TAG, "init: "+e.getMessage());
         }
-
-        myRef = FirebaseDatabase.getInstance().getReference();
+        database =FirebaseDatabase.getInstance();
+        myRef = database.getReference();
 
     }
 
@@ -106,5 +110,6 @@ public class UpdateProfile extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         mUser =mAuth.getCurrentUser();
+        Log.d(TAG, "onStart: user uiu "+mUser.getUid());
     }
 }
