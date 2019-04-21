@@ -107,7 +107,7 @@ public class LoginActivity extends AppCompatActivity {
                         if(task.isSuccessful()){
                             //yah we are in
                             mUser=mAuth.getCurrentUser();
-                            Toast.makeText(LoginActivity.this, "Signed in successful", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(LoginActivity.this, "Signed up successful", Toast.LENGTH_SHORT).show();
                             Intent goHome=new Intent(LoginActivity.this,MainActivity.class);
                             startActivity(goHome);
                             finish();
@@ -137,7 +137,7 @@ public class LoginActivity extends AppCompatActivity {
     private void init() {
         emailet = findViewById(R.id.email_et_id);
         passwordet = findViewById(R.id.pass_et_id);
-        submitBtn = findViewById(R.id.sign_up_as_owner_btn_id);
+        submitBtn = findViewById(R.id.sign_in_as_owner_btn_id);
         signupbtn = findViewById(R.id.sign_up_as_owner_btn_id);
 
         mAuth = FirebaseAuth.getInstance();

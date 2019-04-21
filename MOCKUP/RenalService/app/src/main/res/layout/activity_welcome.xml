@@ -18,7 +18,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="64dp"
         android:layout_marginEnd="8dp"
-        android:text="@string/sign_in_as_tenent"
+        android:text="For Tenant"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
@@ -35,7 +35,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginEnd="64dp"
         android:layout_marginBottom="32dp"
-        android:text="@string/sign_as_owner"
+        android:text="For Owner"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
