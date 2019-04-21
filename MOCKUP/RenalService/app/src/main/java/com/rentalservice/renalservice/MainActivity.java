@@ -1,5 +1,6 @@
 package com.rentalservice.renalservice;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
@@ -33,6 +34,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         if (id == R.id.nav_dashboard) {
             // Handle the camera action
+            Intent goMain = new Intent(MainActivity.this,MainActivity.class);
+            startActivity(goMain);
+            finish();
         } else if (id == R.id.nav_rent) {
             //goto my rent activity
 
