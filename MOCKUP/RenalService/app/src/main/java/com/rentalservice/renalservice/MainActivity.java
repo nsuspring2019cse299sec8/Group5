@@ -19,7 +19,7 @@ import static android.view.View.INVISIBLE;
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     private static final String TAG = "MainActivity";
 
-    
+
 
     DrawerLayout mDrawer;
     NavigationView mNaviagtion;
