@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Renal Service</string>
+    <string name="app_name">Rental Aid</string>
 
     <!-- Auth UI - Signed in -->
     <string name="signed_in_header">You are signed in!</string>

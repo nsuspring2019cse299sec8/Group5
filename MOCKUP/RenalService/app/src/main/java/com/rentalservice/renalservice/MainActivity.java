@@ -12,10 +12,14 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 
+import com.google.firebase.database.FirebaseDatabase;
+
 import static android.view.View.INVISIBLE;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     private static final String TAG = "MainActivity";
+
+    
 
     DrawerLayout mDrawer;
     NavigationView mNaviagtion;

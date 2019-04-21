@@ -28,11 +28,10 @@
               android:layout_marginEnd="8dp"
               android:ems="10"
               android:inputType="textPersonName"
-              android:text="Name"
               app:layout_constraintEnd_toEndOf="parent"
               app:layout_constraintStart_toStartOf="parent"
               app:layout_constraintTop_toTopOf="parent"
-              tools:text=" Name" />
+              android:hint="Name"/>
 
           <EditText
               android:id="@+id/phone_et"
@@ -43,7 +42,7 @@
               android:layout_marginEnd="8dp"
               android:ems="10"
               android:inputType="textPersonName"
-              android:text="Phone Numberh"
+              android:hint="Phone Number"
               app:layout_constraintEnd_toEndOf="parent"
               app:layout_constraintStart_toStartOf="parent"
               app:layout_constraintTop_toBottomOf="@+id/name_et" />
@@ -57,7 +56,7 @@
               android:layout_marginEnd="8dp"
               android:ems="10"
               android:inputType="textPersonName"
-              android:text=" NID"
+              android:hint=" NID"
               app:layout_constraintEnd_toEndOf="parent"
               app:layout_constraintStart_toStartOf="parent"
               app:layout_constraintTop_toBottomOf="@+id/phone_et" />
@@ -71,7 +70,7 @@
               android:layout_marginEnd="8dp"
               android:ems="10"
               android:inputType="textPersonName"
-              android:text="pevious house address"
+              android:hint="previous house address"
               app:layout_constraintEnd_toEndOf="parent"
               app:layout_constraintStart_toStartOf="parent"
               app:layout_constraintTop_toBottomOf="@+id/nid_et" />
