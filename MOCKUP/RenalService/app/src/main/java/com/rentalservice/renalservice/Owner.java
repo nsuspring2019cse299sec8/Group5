@@ -5,12 +5,23 @@ public class Owner {
     private String name;
     private String house_address;
     private String phone;
+    private String tenant_id;
+
+
 
 
     public Owner(String name, String house_address, String phone) {
         this.name = name;
         this.house_address = house_address;
         this.phone = phone;
+    }
+
+    public String getTenant_id() {
+        return tenant_id;
+    }
+
+    public void setTenant_id(String tenant_id) {
+        this.tenant_id = tenant_id;
     }
 
     public String getName() {

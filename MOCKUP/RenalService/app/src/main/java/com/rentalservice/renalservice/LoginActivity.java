@@ -84,6 +84,10 @@ public class LoginActivity extends AppCompatActivity {
                             mUser = mAuth.getCurrentUser();
                             Toast.makeText(LoginActivity.this, "Signed up successful", Toast.LENGTH_SHORT).show();
                             Intent goHome=new Intent(LoginActivity.this,MainActivity.class);
+                            if (bool)
+                            {
+                                goHome.putExtra("owner_key","owner");
+                            }
                             startActivity(goHome);
                             finish();
                         } else {
@@ -116,6 +120,8 @@ public class LoginActivity extends AppCompatActivity {
                             if (bool)
                             {
                                 goHome.putExtra("owner_key","owner");
+                            }else {
+                                goHome.putExtra("owner_key","tenant");
                             }
                             startActivity(goHome);
                             finish();

@@ -16,4 +16,13 @@
         android:icon="@drawable/ic_my_rental"
         android:title="My Rental" />
 
+    <item
+        android:id="@+id/nav_add_tenant"
+        android:icon="@drawable/ic_add_black_24dp"
+        android:title="Add Tenant" />
+
+    <item
+        android:id="@+id/nav_update_tenant"
+        android:icon="@drawable/ic_add_black_24dp"
+        android:title="Update Profile" />
 </menu>

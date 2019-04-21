@@ -8,10 +8,14 @@ import android.support.v4.widget.DrawerLayout;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 
+import static android.view.View.INVISIBLE;
+
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+    private static final String TAG = "MainActivity";
 
     DrawerLayout mDrawer;
     NavigationView mNaviagtion;
@@ -31,14 +35,28 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         mDrawer = findViewById(R.id.drawer_layout);
         mNaviagtion = findViewById(R.id.nav_view);
         mNaviagtion.setNavigationItemSelectedListener(MainActivity.this);
+        addTenant = findViewById(R.id.add_tenant_btn);
 
-        if(getIntent().getStringArrayExtra("owner_key").equals("owner")){
-            bool = true;
-            addTenant = findViewById(R.id.add_tenant_btn);
-           addTenant.show();
+        if(getIntent().getStringArrayExtra("owner_key") !=null){
+            if(getIntent().getStringArrayExtra("owner_key").equals("owner")){
+                bool = true;
+                Log.d(TAG, "init: owner found ");
+                addTenant.show();
+                addTenant.setEnabled(true);
+                addTenant.setClickable(true);
+                addTenant.setAlpha(1.0f);
 
+            }else{
+                addTenant.setEnabled(false);
+                addTenant.setClickable(false);
+                addTenant.setAlpha(0.3f);
+            }
         }else{
             addTenant.hide();
+            //addTenant.setVisibility(INVISIBLE);
+            addTenant.setEnabled(false);
+            addTenant.setClickable(false);
+            addTenant.setAlpha(0.3f);
         }
     }
 
@@ -58,6 +76,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         } else if (id == R.id.nav_myrental){
             //goto nav my rental
         }
+        else if (id == R.id.nav_add_tenant) {
+
+        }
+            //goto nav add tenant
         return false;
     }
 }
