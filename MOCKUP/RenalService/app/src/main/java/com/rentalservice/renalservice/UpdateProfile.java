@@ -99,7 +99,20 @@ public class UpdateProfile extends AppCompatActivity {
             tenant.setNid(nid);
             myRef =database.getReference();
 
-           // myRef.child("owners").child(user_id).setValue(owner).addOnCompleteListener(new)
+            myRef.child("tenants").child(user_id).setValue(tenant).addOnCompleteListener(new OnCompleteListener<Void>() {
+                @Override
+                public void onComplete(@NonNull Task<Void> task) {
+                    if (task.isSuccessful()){
+                        Toast.makeText(UpdateProfile.this, "Success", Toast.LENGTH_SHORT).show();
+                        Intent goMain = new Intent(UpdateProfile.this, MainActivity.class);
+                        goMain.putExtra("owner_key","owner");
+                        startActivity(goMain);
+                        finish();
+                    }else{
+                        Toast.makeText(UpdateProfile.this, "update failed to upload", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            });
 
 
 
