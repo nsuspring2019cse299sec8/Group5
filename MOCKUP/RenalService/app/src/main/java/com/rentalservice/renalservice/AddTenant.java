@@ -35,6 +35,7 @@ public class AddTenant extends AppCompatActivity {
                 //update owners
             }elseif(chectStr.equals("tenant")){
                //update tenant profile
+            
             }
 
         }catch (NullPointerException e){
