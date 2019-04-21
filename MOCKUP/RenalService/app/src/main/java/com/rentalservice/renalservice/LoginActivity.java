@@ -19,9 +19,10 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class LoginActivity extends AppCompatActivity {
     private static final String TAG = "LoginActivity";
-    EditText emailet,passwordet;
-    Button submitBtn;
+    EditText emailet, passwordet;
+    Button submitBtn, signupbtn;
     private FirebaseAuth mAuth;
+    private FirebaseUser mUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,33 +34,92 @@ public class LoginActivity extends AppCompatActivity {
         submitBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String email = emailet.getText().toString();
-                String password = passwordet.getText().toString();
+                Log.i(TAG, "onClick: loginbutton");
+                if (!TextUtils.isEmpty(emailet.getText().toString()) &&
+                        !TextUtils.isEmpty(passwordet.getText().toString())) {
+                    String email = emailet.getText().toString();
+                    String password = passwordet.getText().toString();
+                    Log.i(TAG, "onClick: email: " + email + " pass: " + password);
 
-                if (!TextUtils.isEmpty(email) && !TextUtils.isEmpty(password)){
+                    login(email, password);
 
-                    mAuth.signInWithEmailAndPassword(email,password)
-                            .addOnCompleteListener(LoginActivity.this, new OnCompleteListener<AuthResult>() {
-                                @Override
-                                public void onComplete(@NonNull Task<AuthResult> task) {
-                                    if (task.isSuccessful()){
-                                        Toast.makeText(LoginActivity.this, "Authentication succss", Toast.LENGTH_SHORT).show();
-                                        FirebaseUser user = mAuth.getCurrentUser();
-                                        updateUI(user);
-                                    }else {
-                                        updateUI(null);
-                                    }
-
-                                }
-                            });
-                }else{
-                    Toast.makeText(LoginActivity.this, "Fields are empty not allowed", Toast.LENGTH_SHORT).show();
+                } else {
+                    //fields are empty
                 }
+            }
+        });
 
+        signupbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.i(TAG, "onClick: loginbutton");
+                if (!TextUtils.isEmpty(emailet.getText().toString()) &&
+                        !TextUtils.isEmpty(passwordet.getText().toString())) {
+                    String email = emailet.getText().toString();
+                    String password = passwordet.getText().toString();
+                    Log.i(TAG, "onClick: email: " + email + " pass: " + password);
 
+                    register(email, password);
+
+                } else {
+                    //fields are empty
+                }
 
             }
         });
+    }
+
+    private void register(String email, String password) {
+        mAuth.createUserWithEmailAndPassword(email, password)
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            // Sign in success, update UI with the signed-in user's information
+                            Log.d(TAG, "createUserWithEmail:success");
+                            mUser = mAuth.getCurrentUser();
+                            Toast.makeText(LoginActivity.this, "Signed in successful", Toast.LENGTH_SHORT).show();
+                            Intent goHome=new Intent(LoginActivity.this,MainActivity.class);
+                            startActivity(goHome);
+                            finish();
+                        } else {
+                            // If sign in fails, display a message to the user.
+                            Log.w(TAG, "createUserWithEmail:failure", task.getException());
+                            Toast.makeText(LoginActivity.this, "Authentication failed.",
+                                    Toast.LENGTH_SHORT).show();
+                            updateUI(null);
+                        }
+
+                        // ...
+                    }
+                });
+
+    }
+
+
+    private void login(String email, String password) {
+        Log.i(TAG, "login: login Auth called");
+        mAuth.signInWithEmailAndPassword(email, password)
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+
+                        if(task.isSuccessful()){
+                            //yah we are in
+                            mUser=mAuth.getCurrentUser();
+                            Toast.makeText(LoginActivity.this, "Signed in successful", Toast.LENGTH_SHORT).show();
+                            Intent goHome=new Intent(LoginActivity.this,MainActivity.class);
+                            startActivity(goHome);
+                            finish();
+
+                        }else {
+                            Toast.makeText(LoginActivity.this, "Signed failed!", Toast.LENGTH_SHORT).show();
+
+                        }
+
+                    }
+                });
+
     }
 
     private void updateUI(Object o) {
@@ -77,7 +137,8 @@ public class LoginActivity extends AppCompatActivity {
     private void init() {
         emailet = findViewById(R.id.email_et_id);
         passwordet = findViewById(R.id.pass_et_id);
-        submitBtn = findViewById(R.id.sign_in_as_owner_btn_id);
+        submitBtn = findViewById(R.id.sign_up_as_owner_btn_id);
+        signupbtn = findViewById(R.id.sign_up_as_owner_btn_id);
 
         mAuth = FirebaseAuth.getInstance();
     }

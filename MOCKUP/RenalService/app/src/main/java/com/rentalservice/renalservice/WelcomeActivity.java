@@ -14,7 +14,7 @@ public class WelcomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome);
 
-        AsOwnerBtn = findViewById(R.id.sign_in_as_owner_btn_id);
+        AsOwnerBtn = findViewById(R.id.sign_up_as_owner_btn_id);
 
         AsOwnerBtn.setOnClickListener(new View.OnClickListener() {
             @Override

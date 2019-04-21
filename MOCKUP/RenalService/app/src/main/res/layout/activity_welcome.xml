@@ -9,7 +9,7 @@
 
 
     <Button
-        android:id="@+id/sign_in_as_owner_btn_id"
+        android:id="@+id/sign_up_as_owner_btn_id"
         style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
@@ -51,7 +51,7 @@
         app:layout_constraintBottom_toTopOf="@+id/sign_in_as_rental_btn_id"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sign_in_as_owner_btn_id"
+        app:layout_constraintTop_toBottomOf="@+id/sign_up_as_owner_btn_id"
         app:srcCompat="@drawable/logo_o" />
 
 
