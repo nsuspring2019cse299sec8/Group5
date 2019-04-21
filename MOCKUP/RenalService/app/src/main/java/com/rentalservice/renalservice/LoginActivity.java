@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -21,8 +22,11 @@ public class LoginActivity extends AppCompatActivity {
     private static final String TAG = "LoginActivity";
     EditText emailet, passwordet;
     Button submitBtn, signupbtn;
+    TextView welcomeTv;
     private FirebaseAuth mAuth;
     private FirebaseUser mUser;
+    private String check;
+    private boolean bool=false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,7 +82,7 @@ public class LoginActivity extends AppCompatActivity {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d(TAG, "createUserWithEmail:success");
                             mUser = mAuth.getCurrentUser();
-                            Toast.makeText(LoginActivity.this, "Signed in successful", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(LoginActivity.this, "Signed up successful", Toast.LENGTH_SHORT).show();
                             Intent goHome=new Intent(LoginActivity.this,MainActivity.class);
                             startActivity(goHome);
                             finish();
@@ -107,8 +111,12 @@ public class LoginActivity extends AppCompatActivity {
                         if(task.isSuccessful()){
                             //yah we are in
                             mUser=mAuth.getCurrentUser();
-                            Toast.makeText(LoginActivity.this, "Signed up successful", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(LoginActivity.this, "Signed in successful", Toast.LENGTH_SHORT).show();
                             Intent goHome=new Intent(LoginActivity.this,MainActivity.class);
+                            if (bool)
+                            {
+                                goHome.putExtra("owner_key","owner");
+                            }
                             startActivity(goHome);
                             finish();
 
@@ -124,9 +132,9 @@ public class LoginActivity extends AppCompatActivity {
 
     private void updateUI(Object o) {
         if (o==null){
-            Toast.makeText(this, "User not found!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Failed!", Toast.LENGTH_SHORT).show();
         }else{
-            Toast.makeText(this, "Sign in Successfully", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Successfully", Toast.LENGTH_SHORT).show();
             Intent goMain = new Intent(LoginActivity.this, MainActivity.class);
             startActivity(goMain);
             finish();
@@ -139,8 +147,19 @@ public class LoginActivity extends AppCompatActivity {
         passwordet = findViewById(R.id.pass_et_id);
         submitBtn = findViewById(R.id.sign_in_as_owner_btn_id);
         signupbtn = findViewById(R.id.sign_up_as_owner_btn_id);
+        welcomeTv = findViewById(R.id.welcome_tv);
 
         mAuth = FirebaseAuth.getInstance();
+        check =getIntent().getStringExtra("owner_key");
+       if (check!=null){
+           if (check.equals("owner")) {
+               welcomeTv.setText("Welcome Owner To Rental Aid");
+               bool = true;
+
+           }
+       }else{
+           welcomeTv.setText("Welcome Tenant To Rental Aid");
+       }
     }
 
     @Override

@@ -56,7 +56,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="24dp"
         android:layout_marginEnd="8dp"
         android:drawableStart="@drawable/ic_email_black_24dp"
         android:drawablePadding="8dp"
@@ -65,7 +65,7 @@
         android:inputType="textEmailAddress"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/image_view_id" />
+        app:layout_constraintTop_toBottomOf="@+id/welcome_tv" />
 
     <EditText
         android:id="@+id/pass_et_id"
@@ -82,6 +82,17 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/email_et_id" />
+
+    <TextView
+        android:id="@+id/welcome_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="@+id/image_view_id"
+        app:layout_constraintStart_toStartOf="@+id/image_view_id"
+        app:layout_constraintTop_toBottomOf="@+id/image_view_id"
+        tools:text="Wlcome Tenant o our Rental Aid" />
 
 
 </android.support.constraint.ConstraintLayout>

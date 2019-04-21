@@ -9,7 +9,7 @@
 
 
     <Button
-        android:id="@+id/sign_up_as_owner_btn_id"
+        android:id="@+id/as_tenant_btn"
         style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
@@ -26,7 +26,7 @@
          />
 
     <Button
-        android:id="@+id/sign_in_as_rental_btn_id"
+        android:id="@+id/as_owner_btn"
         style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="wrap_content"
         android:layout_height="0dp"

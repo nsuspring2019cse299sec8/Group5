@@ -13,7 +13,7 @@ public class Tenant {
     }
 
     public String getName() {
-        
+
         return name;
     }
 

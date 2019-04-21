@@ -15,20 +15,20 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:elevation="4dp">
 
         <android.support.v7.widget.CardView
             android:id="@+id/profile_cardView"
             android:layout_width="match_parent"
             android:layout_height="220dp"
-            app:cardCornerRadius="16dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="4dp"
             app:cardBackgroundColor="@color/material_lime_a700"
+            app:cardCornerRadius="16dp"
             app:cardElevation="4dp"
             app:cardMaxElevation="8dp"
-            android:layout_marginTop="4dp"
-            android:layout_marginStart="4dp"
-            android:layout_marginEnd="4dp"
             app:cardUseCompatPadding="true">
 
             <android.support.constraint.ConstraintLayout
@@ -84,17 +84,17 @@
         </android.support.v7.widget.CardView>
 
         <android.support.v7.widget.CardView
-            android:layout_below="@id/profile_cardView"
             android:id="@+id/rent_details_cardview"
             android:layout_width="match_parent"
-            android:layout_marginTop="0dp"
             android:layout_height="220dp"
+            android:layout_below="@id/profile_cardView"
+            android:layout_marginTop="0dp"
             app:cardBackgroundColor="@color/material_deep_purple_500"
             app:cardCornerRadius="16dp"
             app:cardElevation="8dp"
-            app:cardUseCompatPadding="true"
             app:cardMaxElevation="8dp"
-            >
+            app:cardUseCompatPadding="true">
+
             <android.support.constraint.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
@@ -105,17 +105,17 @@
         </android.support.v7.widget.CardView>
 
         <android.support.v7.widget.CardView
-            android:layout_below="@id/rent_details_cardview"
             android:id="@+id/contacts_cardview"
             android:layout_width="match_parent"
-            android:layout_marginTop="0dp"
             android:layout_height="220dp"
+            android:layout_below="@id/rent_details_cardview"
+            android:layout_marginTop="0dp"
             app:cardBackgroundColor="@color/material_deep_purple_500"
             app:cardCornerRadius="16dp"
             app:cardElevation="8dp"
-            app:cardUseCompatPadding="true"
             app:cardMaxElevation="8dp"
-            >
+            app:cardUseCompatPadding="true">
+
             <android.support.constraint.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
@@ -124,6 +124,20 @@
             </android.support.constraint.ConstraintLayout>
 
         </android.support.v7.widget.CardView>
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/add_tenant_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/contacts_cardview"
+            android:layout_alignEnd="@+id/contacts_cardview"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="-17dp"
+            android:layout_marginEnd="40dp"
+            android:layout_marginBottom="27dp"
+            android:clickable="true"
+            app:srcCompat="@drawable/ic_add_black_24dp"
+            android:visibility="invisible"/>
 
 
     </RelativeLayout>
