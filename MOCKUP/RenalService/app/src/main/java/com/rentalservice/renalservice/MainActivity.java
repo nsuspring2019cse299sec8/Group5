@@ -79,6 +79,17 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         else if (id == R.id.nav_add_tenant) {
 
         }
+        else if (id == R.id.nav_update_profile) {
+            Intent goUpdate = new Intent(MainActivity.this, UpdateProfile.class);
+            if (bool){
+                goUpdate.putExtra("key","owner");
+            }else{
+                goUpdate.putExtra("key","tenant");
+            }
+            startActivity(goUpdate);
+
+
+        }
             //goto nav add tenant
         return false;
     }

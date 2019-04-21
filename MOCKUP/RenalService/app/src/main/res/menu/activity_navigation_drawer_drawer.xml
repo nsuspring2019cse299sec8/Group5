@@ -22,7 +22,7 @@
         android:title="Add Tenant" />
 
     <item
-        android:id="@+id/nav_update_tenant"
+        android:id="@+id/nav_update_profile"
         android:icon="@drawable/ic_add_black_24dp"
         android:title="Update Profile" />
 </menu>

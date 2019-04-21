@@ -5,6 +5,7 @@ public class Owner {
     private String name;
     private String house_address;
     private String phone;
+    private String nid;
     private String tenant_id;
 
     public Owner() {
@@ -15,6 +16,14 @@ public class Owner {
         this.house_address = house_address;
         this.phone = phone;
         this.tenant_id = tenant_id;
+    }
+
+    public String getNid() {
+        return nid;
+    }
+
+    public void setNid(String nid) {
+        this.nid = nid;
     }
 
     public String getTenant_id() {
