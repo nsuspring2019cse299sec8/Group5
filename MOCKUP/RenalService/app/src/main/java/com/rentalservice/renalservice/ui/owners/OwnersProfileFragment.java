@@ -1,5 +1,6 @@
 package com.rentalservice.renalservice.ui.owners;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -11,6 +12,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.rentalservice.renalservice.AddNewHouseActivity;
 import com.rentalservice.renalservice.R;
 
 public class OwnersProfileFragment extends Fragment {
@@ -23,7 +25,7 @@ public class OwnersProfileFragment extends Fragment {
     private TextView totalHouseNumberTextView;
     private TextView totalTenantNumberTextView;
 
-    private Button addNewHouseButton, editButton;
+    private Button addNewHouseButton, editProfileButton;
 
 
 
@@ -38,6 +40,13 @@ public class OwnersProfileFragment extends Fragment {
                              @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.owners_profile_fragment, container, false);
         init_view(v);
+        addNewHouseButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent add = new Intent(getContext(), AddNewHouseActivity.class);
+                startActivity(add);
+            }
+        });
         return v;
     }
 
@@ -49,6 +58,8 @@ public class OwnersProfileFragment extends Fragment {
         ownersAreaTextView = v.findViewById(R.id.owners_home_textview);
         totalHouseNumberTextView = v.findViewById(R.id.total_house_number_textview);
         totalTenantNumberTextView = v.findViewById(R.id.total_tenants_number_textview);
+        addNewHouseButton = v.findViewById(R.id.add_house_btn_id);
+
     }
 
 
