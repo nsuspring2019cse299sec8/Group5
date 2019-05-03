@@ -116,12 +116,12 @@ public class LoginActivity extends AppCompatActivity {
                             //yah we are in
                             mUser=mAuth.getCurrentUser();
                             Toast.makeText(LoginActivity.this, "Signed in successful", Toast.LENGTH_SHORT).show();
-                            Intent goHome=new Intent(LoginActivity.this,MainActivity.class);
+                            Intent goHome=new Intent(LoginActivity.this,OwnersActivity.class);
                             if (bool)
                             {
                                 goHome.putExtra("owner_key","owner");
                             }else {
-                                goHome.putExtra("owner_key","tenant");
+                               // goHome.putExtra("owner_key","tenant");
                             }
                             startActivity(goHome);
                             finish();
