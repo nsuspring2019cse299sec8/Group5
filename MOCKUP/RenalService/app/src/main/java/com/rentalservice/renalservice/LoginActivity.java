@@ -21,7 +21,7 @@ import com.google.firebase.auth.FirebaseUser;
 public class LoginActivity extends AppCompatActivity {
     private static final String TAG = "LoginActivity";
     EditText emailet, passwordet;
-    Button submitBtn, signupbtn;
+    Button signinbtn, signupbtn;
     TextView welcomeTv;
     private FirebaseAuth mAuth;
     private FirebaseUser mUser;
@@ -33,44 +33,60 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        init();
 
-        submitBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Log.i(TAG, "onClick: loginbutton");
-                if (!TextUtils.isEmpty(emailet.getText().toString()) &&
-                        !TextUtils.isEmpty(passwordet.getText().toString())) {
-                    String email = emailet.getText().toString();
-                    String password = passwordet.getText().toString();
-                    Log.i(TAG, "onClick: email: " + email + " pass: " + password);
 
-                    login(email, password);
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        if (user != null) {
+            // User is signed in
+            Intent goIntent = new Intent(LoginActivity.this, OwnersActivity.class);
+            startActivity(goIntent);
+            finish();
+        } else {
+            // No user is signed in
+            init();
+            signupbtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Log.i(TAG, "onClick: loginbutton");
+                    if (!TextUtils.isEmpty(emailet.getText().toString()) &&
+                            !TextUtils.isEmpty(passwordet.getText().toString())) {
+                        String email = emailet.getText().toString();
+                        String password = passwordet.getText().toString();
+                        Log.i(TAG, "onClick: email: " + email + " pass: " + password);
 
-                } else {
-                    //fields are empty
+                        register(email, password);
+
+                    } else {
+                        //fields are empty
+                    }
+
                 }
-            }
-        });
+            });
 
-        signupbtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Log.i(TAG, "onClick: loginbutton");
-                if (!TextUtils.isEmpty(emailet.getText().toString()) &&
-                        !TextUtils.isEmpty(passwordet.getText().toString())) {
-                    String email = emailet.getText().toString();
-                    String password = passwordet.getText().toString();
-                    Log.i(TAG, "onClick: email: " + email + " pass: " + password);
+            signinbtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (!TextUtils.isEmpty(emailet.getText().toString()) &&
+                            !TextUtils.isEmpty(passwordet.getText().toString())) {
+                        String email = emailet.getText().toString();
+                        String password = passwordet.getText().toString();
+                        Log.i(TAG, "onClick: email: " + email + " pass: " + password);
 
-                    register(email, password);
+                        login(email, password);
 
-                } else {
-                    //fields are empty
+                    } else {
+                        //fields are empty
+                    }
                 }
+            });
 
-            }
-        });
+        }
+
+
+
+
+
+
     }
 
     private void register(String email, String password) {
@@ -83,7 +99,7 @@ public class LoginActivity extends AppCompatActivity {
                             Log.d(TAG, "createUserWithEmail:success");
                             mUser = mAuth.getCurrentUser();
                             Toast.makeText(LoginActivity.this, "Signed up successful", Toast.LENGTH_SHORT).show();
-                            Intent goHome=new Intent(LoginActivity.this,MainActivity.class);
+                            Intent goHome=new Intent(LoginActivity.this,OwnersEditProfileActivity.class);
                             if (bool)
                             {
                                 goHome.putExtra("owner_key","owner");
@@ -151,7 +167,7 @@ public class LoginActivity extends AppCompatActivity {
     private void init() {
         emailet = findViewById(R.id.email_et_id);
         passwordet = findViewById(R.id.pass_et_id);
-        submitBtn = findViewById(R.id.sign_in_as_owner_btn_id);
+        signinbtn = findViewById(R.id.sign_in_as_owner_btn_id);
         signupbtn = findViewById(R.id.sign_up_as_owner_btn_id);
         welcomeTv = findViewById(R.id.welcome_tv);
 

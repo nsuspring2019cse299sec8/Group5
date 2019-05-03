@@ -12,14 +12,10 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-
-import java.util.HashMap;
-import java.util.Map;
 
 public class UpdateProfile extends AppCompatActivity {
     private static final String TAG = "UpdateProfile";
@@ -63,8 +59,7 @@ public class UpdateProfile extends AppCompatActivity {
             owner =new Owner();
             owner.setName(name);
             owner.setPhone(phone);
-            owner.setHouse_address(prev_add);
-            owner.setNid(nid);
+            owner.setArea(prev_add);
 
             //Map<String, Owner> map =new HashMap<>();
            // map.put(user_id, owner);
