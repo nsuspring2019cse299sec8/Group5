@@ -4,8 +4,9 @@ public class Tenant {
     private String name;
     private String phone;
     private String prev_address;
-    private  String nid;
+
     private String owner_id;
+    private  boolean status;
 
 
 
@@ -13,19 +14,19 @@ public class Tenant {
 
     }
 
-    public Tenant(String name, String phone, String prev_address,String nid) {
+    public Tenant(String name, String phone, String prev_address,boolean status) {
         this.name = name;
         this.phone = phone;
         this.prev_address = prev_address;
-        this.nid =nid;
+        this.status = status;
     }
 
-    public String getNid() {
-        return nid;
+    public boolean isStatus() {
+        return status;
     }
 
-    public void setNid(String nid) {
-        this.nid = nid;
+    public void setStatus(boolean status) {
+        this.status = status;
     }
 
     public String getOwner_id() {

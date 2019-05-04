@@ -20,7 +20,7 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-public class LoginActivity extends AppCompatActivity {
+public class LoginForTenantActivity extends AppCompatActivity {
     private static final String TAG = "LoginActivity";
     EditText emailet, passwordet;
     Button signinbtn, signupbtn;
@@ -41,7 +41,7 @@ public class LoginActivity extends AppCompatActivity {
 
         if (user != null) {
             // User is signed in
-            Intent goIntent = new Intent(LoginActivity.this, OwnersActivity.class);
+            Intent goIntent = new Intent(LoginForTenantActivity.this, OwnersActivity.class);
             startActivity(goIntent);
             finish();
         } else {
@@ -61,6 +61,7 @@ public class LoginActivity extends AppCompatActivity {
 
                     } else {
                         //fields are empty
+
                     }
 
                 }
@@ -85,11 +86,6 @@ public class LoginActivity extends AppCompatActivity {
 
         }
 
-
-
-
-
-
     }
 
     private void register(String email, String password) {
@@ -101,18 +97,14 @@ public class LoginActivity extends AppCompatActivity {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d(TAG, "createUserWithEmail:success");
                             mUser = mAuth.getCurrentUser();
-                            Toast.makeText(LoginActivity.this, "Signed up successful", Toast.LENGTH_SHORT).show();
-                            Intent goHome=new Intent(LoginActivity.this,OwnersEditProfileActivity.class);
-                            if (bool)
-                            {
-                                goHome.putExtra("owner_key","owner");
-                            }
+                            Toast.makeText(LoginForTenantActivity.this, "Signed up successful", Toast.LENGTH_SHORT).show();
+                            Intent goHome=new Intent(LoginForTenantActivity.this,OwnersEditProfileActivity.class);
                             startActivity(goHome);
                             finish();
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w(TAG, "createUserWithEmail:failure", task.getException());
-                            Toast.makeText(LoginActivity.this, "Authentication failed.",
+                            Toast.makeText(LoginForTenantActivity.this, "Authentication failed.",
                                     Toast.LENGTH_SHORT).show();
                             updateUI(null);
                         }
@@ -134,19 +126,19 @@ public class LoginActivity extends AppCompatActivity {
                         if(task.isSuccessful()){
                             //yah we are in
                             mUser=mAuth.getCurrentUser();
-                            Toast.makeText(LoginActivity.this, "Signed in successful", Toast.LENGTH_SHORT).show();
-                            Intent goHome=new Intent(LoginActivity.this,OwnersActivity.class);
+                            Toast.makeText(LoginForTenantActivity.this, "Signed in successful", Toast.LENGTH_SHORT).show();
+                            Intent goHome=new Intent(LoginForTenantActivity.this,OwnersActivity.class);
                             if (bool)
                             {
                                 goHome.putExtra("owner_key","owner");
                             }else {
-                               // goHome.putExtra("owner_key","tenant");
+                                // goHome.putExtra("owner_key","tenant");
                             }
                             startActivity(goHome);
                             finish();
 
                         }else {
-                            Toast.makeText(LoginActivity.this, "Signed failed!", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(LoginForTenantActivity.this, "Signed failed!", Toast.LENGTH_SHORT).show();
 
                         }
 
@@ -160,7 +152,7 @@ public class LoginActivity extends AppCompatActivity {
             Toast.makeText(this, "Failed!", Toast.LENGTH_SHORT).show();
         }else{
             Toast.makeText(this, "Successfully", Toast.LENGTH_SHORT).show();
-            Intent goMain = new Intent(LoginActivity.this, MainActivity.class);
+            Intent goMain = new Intent(LoginForTenantActivity.this, MainActivity.class);
             startActivity(goMain);
             finish();
 
@@ -175,22 +167,13 @@ public class LoginActivity extends AppCompatActivity {
         welcomeTv = findViewById(R.id.welcome_tv);
 
         mAuth = FirebaseAuth.getInstance();
-        check =getIntent().getStringExtra("owner_key");
-       if (check!=null){
-           if (check.equals("owner")) {
-               welcomeTv.setText("Welcome Owner To Rental Aid");
-               bool = true;
 
-           }
-       }else{
-           welcomeTv.setText("Welcome Tenant To Rental Aid");
-       }
     }
 
     @Override
     protected void onStart() {
         super.onStart();
-       // FirebaseUser currentUser = mAuth.getCurrentUser();
+        // FirebaseUser currentUser = mAuth.getCurrentUser();
 
     }
 }

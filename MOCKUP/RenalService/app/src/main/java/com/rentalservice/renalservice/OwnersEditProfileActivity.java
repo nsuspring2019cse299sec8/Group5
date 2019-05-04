@@ -46,10 +46,10 @@ public class OwnersEditProfileActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String name = ownersNameEditText.getText().toString();
-                String email = ownersNameEditText.getText().toString();
+                String email = mUser.getEmail();
                 String phone = ownersNameEditText.getText().toString();
                 String area = ownersNameEditText.getText().toString();
-                Owner owner = new Owner(name, email , phone, area);
+                Owner owner = new Owner(name, email , phone, area,true);
 
                 owner.setTotal_house("0");
 
@@ -78,7 +78,7 @@ public class OwnersEditProfileActivity extends AppCompatActivity {
 
         ownersProfileImageView = findViewById(R.id.owners_profile_imageview);
         ownersNameEditText = findViewById(R.id.owners_name_EditText);
-        ownersEmailEditText = findViewById(R.id.owners_email_EditText);
+
         ownersPhoneEditText = findViewById(R.id.owners_phone_EditText);
         ownersAreaEditText = findViewById(R.id.owners_home_EditText);
 

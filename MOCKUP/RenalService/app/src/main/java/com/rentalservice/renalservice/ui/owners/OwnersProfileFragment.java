@@ -1,5 +1,6 @@
 package com.rentalservice.renalservice.ui.owners;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -24,6 +25,7 @@ import com.google.firebase.database.ValueEventListener;
 import com.rentalservice.renalservice.AddNewHouseActivity;
 import com.rentalservice.renalservice.Owner;
 import com.rentalservice.renalservice.R;
+import com.rentalservice.renalservice.WelcomeActivity;
 
 public class OwnersProfileFragment extends Fragment {
     private static final String TAG = "OwnersProfileFragment";
@@ -45,7 +47,10 @@ public class OwnersProfileFragment extends Fragment {
 
     private String user_id;
 
+    private Context mContext;
+
     public OwnersProfileFragment() {
+        this.mContext = getActivity();
     }
 
     public static OwnersProfileFragment newInstance() {
@@ -70,6 +75,9 @@ public class OwnersProfileFragment extends Fragment {
             public void onClick(View v) {
                 FirebaseAuth.getInstance().signOut();
                 Toast.makeText(getContext(), "Sign out Success!", Toast.LENGTH_SHORT).show();
+                Intent logoutIntent = new Intent(getContext(), WelcomeActivity.class);
+                startActivity(logoutIntent);
+
             }
         });
 

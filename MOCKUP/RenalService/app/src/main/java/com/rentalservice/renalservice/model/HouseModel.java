@@ -6,13 +6,15 @@ public class HouseModel {
     private String flat;
     private String block;
     private String area;
+    private String houseRent;
 
-    public HouseModel(String name, String road, String flat, String block, String area) {
+    public HouseModel(String name, String road, String flat, String block, String area,String houseRent) {
         this.name = name;
         this.road = road;
         this.flat = flat;
         this.block = block;
         this.area = area;
+        this.houseRent =houseRent;
     }
 
     public String getName() {

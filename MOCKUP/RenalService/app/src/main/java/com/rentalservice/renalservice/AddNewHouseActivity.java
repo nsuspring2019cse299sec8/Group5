@@ -3,6 +3,7 @@ package com.rentalservice.renalservice;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.design.widget.TextInputEditText;
+import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -26,7 +27,8 @@ import com.rentalservice.renalservice.model.HouseModel;
 public class AddNewHouseActivity extends AppCompatActivity {
     private static final String TAG = "AddNewHouseActivity";
 
-    TextInputEditText houseNameInput,flatNameInput,roadNameInput,blockNameInput;
+    TextInputEditText houseNameInputEt,flatNameInputEt,roadNameInputEt,blockNameInputEt;
+    TextInputLayout houseNameInput,flatNameInput,roadNameInput,blockNameInput,rentInput;
     Button submitButton;
     RadioGroup areaGroupButton;
     RadioButton basundaraBtn, baridaraBtn, gulsanBtn;
@@ -65,10 +67,13 @@ public class AddNewHouseActivity extends AppCompatActivity {
                         area="gulsan";
                         break;
                 }
-                HouseModel houseModel = new HouseModel(houseNameInput.getText().toString(),
-                         roadNameInput.getText().toString(), flatNameInput.getText().toString(),blockNameInput.getText().toString(),
-                        area);
-                myRef.child("houses").child(user_id).setValue(houseModel).addOnCompleteListener(new OnCompleteListener<Void>() {
+                HouseModel houseModel = new HouseModel(houseNameInput.getEditText().getText().toString(),
+                         roadNameInput.getEditText().getText().toString(),
+                        flatNameInput.getEditText().getText().toString(),
+                        blockNameInput.getEditText().getText().toString(),
+                        area,
+                        rentInput.getEditText().getText().toString());
+                myRef.child(user_id).setValue(houseModel).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if (task.isSuccessful()){
@@ -94,15 +99,16 @@ public class AddNewHouseActivity extends AppCompatActivity {
     }
 
     private void init() {
-        submitButton = findViewById(R.id.submit_btn_id);
-        houseNameInput = findViewById(R.id.new_house_name_input);
-        roadNameInput = findViewById(R.id.new_road_number_input);
-        flatNameInput = findViewById(R.id.new_flat_number_input);
-        blockNameInput = findViewById(R.id.new_block_number_input);
+        submitButton = findViewById(R.id.submit_button);
+        houseNameInput = findViewById(R.id.textInputLayout);
+        roadNameInput = findViewById(R.id.textInputLayout3);
+        flatNameInput = findViewById(R.id.textInputLayout2);
+        blockNameInput = findViewById(R.id.textInputLayout4);
+        rentInput = findViewById(R.id.textInputLayout6);
         areaGroupButton =findViewById(R.id.area_group_btn_id);
 
         database = FirebaseDatabase.getInstance();
-        myRef = database.getReference("owners");
+        myRef = database.getReference("houses");
 
         mAuth =FirebaseAuth.getInstance();
         mUser =mAuth.getCurrentUser();

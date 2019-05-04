@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".OwnersEditProfileActivity"></activity>
+        <activity android:name=".LoginForTenantActivity"></activity>
+        <activity android:name=".OwnersEditProfileActivity" />
         <activity android:name=".AddNewHouseActivity" />
         <activity android:name=".OwnersActivity" />
         <activity android:name=".UpdateProfile" />

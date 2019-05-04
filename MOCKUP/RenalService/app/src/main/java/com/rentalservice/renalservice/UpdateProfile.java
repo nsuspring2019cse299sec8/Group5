@@ -87,11 +87,12 @@ public class UpdateProfile extends AppCompatActivity {
 
         }else{
 
+            boolean b =false;
             tenant =new Tenant();
             tenant.setName(name);
             tenant.setPhone(phone);
             tenant.setPrev_address(prev_add);
-            tenant.setNid(nid);
+            tenant.setStatus(b);
             myRef =database.getReference();
 
             myRef.child("tenants").child(user_id).setValue(tenant).addOnCompleteListener(new OnCompleteListener<Void>() {
@@ -100,7 +101,7 @@ public class UpdateProfile extends AppCompatActivity {
                     if (task.isSuccessful()){
                         Toast.makeText(UpdateProfile.this, "Success", Toast.LENGTH_SHORT).show();
                         Intent goMain = new Intent(UpdateProfile.this, MainActivity.class);
-                        goMain.putExtra("owner_key","owner");
+                        goMain.putExtra("owner_key","tenant");
                         startActivity(goMain);
                         finish();
                     }else{

@@ -7,6 +7,7 @@ public class Owner {
     private String area;
     private String phone;
     private String total_house;
+    private  boolean status;
 
 
 
@@ -14,11 +15,12 @@ public class Owner {
 
     }
 
-    public Owner(String name, String email, String phone, String house_address ) {
+    public Owner(String name, String email, String phone, String house_address,boolean status ) {
         this.name = name;
         this.area = house_address;
         this.phone = phone;
         this.email = email;
+        this.status =status;
 
     }
 
@@ -28,6 +30,14 @@ public class Owner {
         this.area = area;
         this.phone = phone;
         this.total_house = total_house;
+    }
+
+    public boolean isStatus() {
+        return status;
+    }
+
+    public void setStatus(boolean status) {
+        this.status = status;
     }
 
     public String getTotal_house() {
