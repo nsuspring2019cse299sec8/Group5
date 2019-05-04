@@ -73,7 +73,7 @@
                        app:layout_constraintTop_toTopOf="parent" />
 
                    <TextView
-                       android:id="@+id/flatname_tv_id"
+                       android:id="@+id/tenant_area_tv"
                        android:layout_width="wrap_content"
                        android:layout_height="wrap_content"
                        android:layout_marginBottom="24dp"

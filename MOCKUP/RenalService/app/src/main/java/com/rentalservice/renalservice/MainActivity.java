@@ -11,20 +11,35 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import static android.view.View.INVISIBLE;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     private static final String TAG = "MainActivity";
 
-
+    TextView tenantName,tenantArea;
 
     DrawerLayout mDrawer;
     NavigationView mNaviagtion;
     boolean bool =false;
     FloatingActionButton addTenant;
+
+    FirebaseDatabase database;
+    DatabaseReference myRef;
+
+    FirebaseUser mUser;
+    FirebaseAuth mAuth;
+
+    String user_id;
 
 
     @Override
@@ -33,6 +48,26 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         setContentView(R.layout.activity_main);
 
        init();
+
+        // Read from the database
+        myRef.child(user_id).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                // This method is called once with the initial value and again
+                // whenever data at this location is updated.
+                Tenant tenant = dataSnapshot.getValue(Tenant.class);
+                //Log.d(TAG, "Value is: " + owner.toString());
+                tenantName.setText(tenant.getName());
+                tenantArea.setText(tenant.getPrev_address());
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError error) {
+                // Failed to read value
+                Log.w(TAG, "Failed to read value.", error.toException());
+            }
+        });
     }
 
     private void init() {
@@ -40,6 +75,22 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         mNaviagtion = findViewById(R.id.nav_view);
         mNaviagtion.setNavigationItemSelectedListener(MainActivity.this);
         addTenant = findViewById(R.id.add_tenant_btn);
+
+        tenantName = findViewById(R.id.username_tv);
+        tenantArea = findViewById(R.id.tenant_area_tv);
+
+        database =FirebaseDatabase.getInstance();
+        myRef = database.getReference("tenants");
+        mAuth =FirebaseAuth.getInstance();
+        mUser =mAuth.getCurrentUser();
+        try{
+            user_id =mUser.getUid();
+            Log.d(TAG, "init: check str: ");
+        }catch (NullPointerException e){
+            Log.d(TAG, "init: "+e.getMessage());
+        }
+
+
         String ch =getIntent().getStringExtra("owner_key");
 
         if(ch!=null){

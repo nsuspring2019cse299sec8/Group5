@@ -129,17 +129,6 @@ public class UpdateProfile extends AppCompatActivity {
         mUser =mAuth.getCurrentUser();
         try{
             user_id =mUser.getUid();
-
-            chectStr = getIntent().getStringExtra("key");
-            Log.d(TAG, "init: check str: ");
-            if ("owner".equals(chectStr)){
-                //update owners
-                check = true;
-            }else if(chectStr.equals("tenant")){
-               //update tenant profile
-
-            }
-
         }catch (NullPointerException e){
             Log.d(TAG, "init: "+e.getMessage());
         }
@@ -152,6 +141,6 @@ public class UpdateProfile extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         mUser =mAuth.getCurrentUser();
-        Log.d(TAG, "onStart: user uiu "+mUser.getUid());
+       // Log.d(TAG, "onStart: user uiu "+mUser.getUid());
     }
 }

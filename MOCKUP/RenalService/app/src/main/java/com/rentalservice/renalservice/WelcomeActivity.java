@@ -30,7 +30,7 @@ public class WelcomeActivity extends AppCompatActivity {
         asTenantBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent goIntent = new Intent(WelcomeActivity.this,LoginActivity.class);
+                Intent goIntent = new Intent(WelcomeActivity.this,LoginForTenantActivity.class);
                 startActivity(goIntent);
             }
         });

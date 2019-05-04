@@ -38,10 +38,9 @@ public class LoginForTenantActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
-
         if (user != null) {
             // User is signed in
-            Intent goIntent = new Intent(LoginForTenantActivity.this, OwnersActivity.class);
+            Intent goIntent = new Intent(LoginForTenantActivity.this, MainActivity.class);
             startActivity(goIntent);
             finish();
         } else {
@@ -61,6 +60,7 @@ public class LoginForTenantActivity extends AppCompatActivity {
 
                     } else {
                         //fields are empty
+                        Toast.makeText(LoginForTenantActivity.this, "Empty Field Not Allowed", Toast.LENGTH_SHORT).show();
 
                     }
 
@@ -98,7 +98,7 @@ public class LoginForTenantActivity extends AppCompatActivity {
                             Log.d(TAG, "createUserWithEmail:success");
                             mUser = mAuth.getCurrentUser();
                             Toast.makeText(LoginForTenantActivity.this, "Signed up successful", Toast.LENGTH_SHORT).show();
-                            Intent goHome=new Intent(LoginForTenantActivity.this,OwnersEditProfileActivity.class);
+                            Intent goHome=new Intent(LoginForTenantActivity.this,TenantEditProfileActivity.class);
                             startActivity(goHome);
                             finish();
                         } else {
@@ -127,13 +127,7 @@ public class LoginForTenantActivity extends AppCompatActivity {
                             //yah we are in
                             mUser=mAuth.getCurrentUser();
                             Toast.makeText(LoginForTenantActivity.this, "Signed in successful", Toast.LENGTH_SHORT).show();
-                            Intent goHome=new Intent(LoginForTenantActivity.this,OwnersActivity.class);
-                            if (bool)
-                            {
-                                goHome.putExtra("owner_key","owner");
-                            }else {
-                                // goHome.putExtra("owner_key","tenant");
-                            }
+                            Intent goHome=new Intent(LoginForTenantActivity.this,MainActivity.class);
                             startActivity(goHome);
                             finish();
 
@@ -165,7 +159,7 @@ public class LoginForTenantActivity extends AppCompatActivity {
         signinbtn = findViewById(R.id.sign_in_as_owner_btn_id);
         signupbtn = findViewById(R.id.sign_up_as_owner_btn_id);
         welcomeTv = findViewById(R.id.welcome_tv);
-
+        welcomeTv.setText("Hello Tenant \\n Welcome to Rental Aid");
         mAuth = FirebaseAuth.getInstance();
 
     }

@@ -18,14 +18,14 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-public class OwnersEditProfileActivity extends AppCompatActivity {
-    private static final String TAG = "OwnersEditProfileActivi";
+public class TenantEditProfileActivity extends AppCompatActivity {
+    private static final String TAG = "TenantEditProfileActivity";
 
     private ImageButton ownersProfileImageView;
-    private TextView ownersNameEditText;
-    private TextView ownersAreaEditText;
-    private TextView ownersEmailEditText;
-    private TextView ownersPhoneEditText;
+    private TextView tenantNameEditText;
+    private TextView tenantAreaEditText;
+    private TextView tenantEmailEditText;
+    private TextView tenantPhoneEditText;
     private Button submit;
 
     FirebaseUser mUser;
@@ -37,34 +37,34 @@ public class OwnersEditProfileActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_owners_edit_profile);
+        setContentView(R.layout.activity_tenant_edit_profile);
 
         init();
 
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String name = ownersNameEditText.getText().toString();
+                String name = tenantNameEditText.getText().toString();
                 String email = mUser.getEmail();
-                String phone = ownersNameEditText.getText().toString();
-                String area = ownersNameEditText.getText().toString();
-                Owner owner = new Owner(name, email , phone, area,true);
+                String phone = tenantPhoneEditText.getText().toString();
+                String area = tenantAreaEditText.getText().toString();
 
-                owner.setTotal_house("0");
+                Tenant tenant = new Tenant(name,phone,area,false);
+
 
                 myRef =database.getReference();
 
-                myRef.child("owners").child(user_id).setValue(owner).addOnCompleteListener(new OnCompleteListener<Void>() {
+                myRef.child("tenants").child(user_id).setValue(tenant).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if (task.isSuccessful()){
-                            Toast.makeText(OwnersEditProfileActivity.this, "Profile Updated", Toast.LENGTH_SHORT).show();
-                            Intent goIntent = new Intent(OwnersEditProfileActivity.this, OwnersActivity.class);
+                            Toast.makeText(TenantEditProfileActivity.this, "Profile Updated", Toast.LENGTH_SHORT).show();
+                            Intent goIntent = new Intent(TenantEditProfileActivity.this, MainActivity.class);
                             startActivity(goIntent);
                             finish();
 
                         }else{
-                            Toast.makeText(OwnersEditProfileActivity.this, "Profile Update Fail!", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(TenantEditProfileActivity.this, "Profile Update Fail!", Toast.LENGTH_SHORT).show();
 
                         }
                     }
@@ -76,10 +76,9 @@ public class OwnersEditProfileActivity extends AppCompatActivity {
     private void init() {
 
         ownersProfileImageView = findViewById(R.id.owners_profile_imageview);
-        ownersNameEditText = findViewById(R.id.tenant_name_EditText);
-
-        ownersPhoneEditText = findViewById(R.id.tenant_phone_EditText);
-        ownersAreaEditText = findViewById(R.id.tenant_home_EditText);
+        tenantNameEditText = findViewById(R.id.tenant_name_EditText);
+        tenantPhoneEditText = findViewById(R.id.tenant_phone_EditText);
+        tenantAreaEditText = findViewById(R.id.tenant_home_EditText);
 
         submit = findViewById(R.id.submit_btn_id);
 
@@ -87,9 +86,9 @@ public class OwnersEditProfileActivity extends AppCompatActivity {
         mUser =mAuth.getCurrentUser();
         try{
             user_id =mUser.getUid();
-            Log.d(TAG, "init: check str: ");
+
         }catch (NullPointerException e){
-            Log.d(TAG, "init: "+e.getMessage());
+
         }
         database =FirebaseDatabase.getInstance();
     }
