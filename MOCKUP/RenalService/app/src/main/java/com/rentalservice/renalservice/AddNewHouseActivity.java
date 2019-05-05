@@ -79,7 +79,7 @@ public class AddNewHouseActivity extends AppCompatActivity {
                         if (task.isSuccessful()){
                             Toast.makeText(AddNewHouseActivity.this, "New House Updated", Toast.LENGTH_SHORT).show();
                             DatabaseReference addHouse= database.getReference("owners");
-                            
+
                             Intent goIntent = new Intent(AddNewHouseActivity.this, OwnersActivity.class);
                             startActivity(goIntent);
                             finish();
