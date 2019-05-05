@@ -34,7 +34,7 @@ public class OwnersActivity extends AppCompatActivity {
 
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
         adapter.addFragment(new OwnersProfileFragment(),"Profile");
-        //adapter.addFragment(new Fragment_two(),"Contacts");
+        adapter.addFragment(new AddRentFragment(),"Add Rent");
         viewpager.setAdapter(adapter);
 
     }

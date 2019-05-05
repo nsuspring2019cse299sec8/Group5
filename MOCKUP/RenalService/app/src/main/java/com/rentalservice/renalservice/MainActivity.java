@@ -35,6 +35,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     FirebaseDatabase database;
     DatabaseReference myRef;
+    DatabaseReference hRef;
 
     FirebaseUser mUser;
     FirebaseAuth mAuth;
@@ -48,6 +49,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         setContentView(R.layout.activity_main);
 
        init();
+       hRef =database.getReference("houses");
 
         // Read from the database
         myRef.child(user_id).addValueEventListener(new ValueEventListener() {
@@ -59,6 +61,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 //Log.d(TAG, "Value is: " + owner.toString());
                 tenantName.setText(tenant.getName());
                 tenantArea.setText(tenant.getPrev_address());
+
+
 
             }
 
@@ -123,7 +127,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         if (id == R.id.nav_dashboard) {
             // Handle the camera action
-            Intent goMain = new Intent(MainActivity.this,MainActivity.class);
+            Intent goMain = new Intent(MainActivity.this,HouseFeedActivity.class);
             startActivity(goMain);
             finish();
         } else if (id == R.id.nav_rent) {

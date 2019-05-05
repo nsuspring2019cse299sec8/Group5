@@ -71,14 +71,15 @@ public class AddNewHouseActivity extends AppCompatActivity {
                          roadNameInput.getEditText().getText().toString(),
                         flatNameInput.getEditText().getText().toString(),
                         blockNameInput.getEditText().getText().toString(),
-                        area,
-                        rentInput.getEditText().getText().toString());
+                        rentInput.getEditText().getText().toString(),area
+                        );
                 myRef.child(user_id).setValue(houseModel).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if (task.isSuccessful()){
                             Toast.makeText(AddNewHouseActivity.this, "New House Updated", Toast.LENGTH_SHORT).show();
-
+                            DatabaseReference addHouse= database.getReference("owners");
+                            
                             Intent goIntent = new Intent(AddNewHouseActivity.this, OwnersActivity.class);
                             startActivity(goIntent);
                             finish();

@@ -6,6 +6,7 @@ public class Tenant {
     private String prev_address;
 
     private String owner_id;
+    private String house_id;
     private  boolean status;
 
 
@@ -40,6 +41,14 @@ public class Tenant {
     public String getName() {
 
         return name;
+    }
+
+    public String getHouse_id() {
+        return house_id;
+    }
+
+    public void setHouse_id(String house_id) {
+        this.house_id = house_id;
     }
 
     public void setName(String name) {
